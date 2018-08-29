@@ -26,10 +26,10 @@ class App extends React.Component {
     if (city && country) {
       console.log (data);
       this.setState ({
-        temperature: data.main.temp,
+        temperature: `${data.main.temp}°`,
         city: data.name,
-        country: data.sys.country,
-        humidity: data.main.humidity,
+        country: `${data.sys.country} 🇩🇪`,
+        humidity: `${data.main.humidity}💧`,
         description: data.weather[0].description,
         error: '',
       });
@@ -52,10 +52,10 @@ class App extends React.Component {
           <div className="main">
             <div className="container">
               <div className="row">
-                <div className="col-xs-5 title-container">
+                <div className="col-sm title-container">
                   <Titles />
                 </div>
-                <div className="col-xs-7 form-container">
+                <div className="col-sm form-container">
                   <Form getWeather={this.getWeather} />
                   <Weather
                     temperature={this.state.temperature}
